@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: verify
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: push после showcase (см. лог)
+- Remote: `main` @ `90be1bd` pushed to `origin/main`
 - Этап showcase: `готово`; plan → `unit-benefits` / в очереди
 - Soft: mid-stage Verify→developer; foundation без независимого tester
 - Следующий лучший шаг: роль tester — проверить DoD этапа showcase по HANDOFF
@@ -33,7 +33,7 @@ Handoff между сессиями: проверенное состояние, 
 - Запущенная верификация: npm test 7/7; build; HTML latunny без lk-45 со скидками
 - Осталось: tester showcase; затем unit-benefits
 - Следующий лучший шаг: tester проверяет showcase
-- Delivered: commit+push (SHA ниже)
+- Delivered: commit+push `90be1bd` на `origin/main`
 
 ### Сессия 007–001
 
