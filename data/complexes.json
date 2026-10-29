@@ -1,0 +1,26 @@
+[
+  {
+    "id": "severny-kamen",
+    "name": "Северный камень",
+    "shortDescription": "Тихий двор у парка, латунные акценты на фасаде.",
+    "lat": 55.8601,
+    "lng": 37.5412,
+    "image": "/media/complexes/severny-kamen.jpg"
+  },
+  {
+    "id": "latunny-kvartal",
+    "name": "Латунный квартал",
+    "shortDescription": "Камерный дом у набережной, каменная облицовка.",
+    "lat": 55.7522,
+    "lng": 37.6156,
+    "image": "/media/complexes/latunny-kvartal.jpg"
+  },
+  {
+    "id": "rechnoy-utes",
+    "name": "Речной утёс",
+    "shortDescription": "Высокий берег реки, широкие окна на закат.",
+    "lat": 55.7098,
+    "lng": 37.5784,
+    "image": "/media/complexes/rechnoy-utes.jpg"
+  }
+]

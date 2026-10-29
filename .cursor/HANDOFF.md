@@ -12,16 +12,16 @@
 - phase: build
 - round: 0
 - verdict: pass
-- summary: Этап foundation готов — Compose поднимает сайт, `/` прибытие с телефоном, `GET /api/health` = 200, слоты AGENTS заполнены. Каталог/карта/запись не в этом этапе.
+- summary: Этап catalog готов — 3 ЖК, 9 квартир (1 недоступна), льготы, старты маршрута, медиа и Vitest зелёный. UI витрины/карты не в этом этапе.
 - blockers: 
-- written_at: 2026-10-29 / session-003-developer-foundation
+- written_at: 2026-10-29 / session-004-developer-catalog
 
 ## Payload
 
 ### Build → Verify (с plan)
 
 - plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
-- stage_id: foundation
-- stage_dod_summary: Docker Compose поднимает приложение; `/` — бренд «Каменный двор», телефон в шапке, CTA «Смотреть дома», без витрины/карты/календаря/льгот; `/api/health` → 200; слоты запуска в AGENTS заполнены
-- how_to_verify: `docker compose up --build`; `GET http://localhost:3000/api/health`; открыть `http://localhost:3000/`; при необходимости `npm run lint`
-- expected: health 200; на `/` видны бренд и `+7 (495) 120-40-40` / `tel:+74951204040`; в первом вьюпорте нет каталога/карты/календаря/льгот; контейнер healthy
+- stage_id: catalog
+- stage_dod_summary: Каталог читается из data/; 3 комплекса; 9 квартир с ровно одной недоступной; available-фильтр скрывает её; медиа и ATTRIBUTION на месте
+- how_to_verify: `npm test`
+- expected: Vitest — 4 passed; нет fail по составу каталога

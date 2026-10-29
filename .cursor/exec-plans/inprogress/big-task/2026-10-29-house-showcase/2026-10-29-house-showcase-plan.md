@@ -60,7 +60,7 @@
 
 Один этап. Id из decompose.
 
-- Этап id: catalog
+- Этап id: complexes
 - Статус: в очереди
 
 ## Путь верификации
@@ -80,6 +80,11 @@
 - Слоты AGENTS пусты до foundation
 
 ## Лог прогресса
+
+- Сессия: 2026-10-29 developer catalog
+  - Этап id: catalog
+  - Сделано: JSON комплексы/квартиры/льготы/старты; Unsplash + SVG-планы; `lib/catalog` + Vitest 4/4; AGENTS `npm test`
+  - Осталось: complexes после Verify catalog / следующего Build
 
 - Сессия: 2026-10-29 developer foundation
   - Этап id: foundation
