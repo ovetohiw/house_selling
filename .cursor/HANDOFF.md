@@ -6,22 +6,30 @@
 
 ## Конверт
 
-- from_role: developer
-- to_role: tester
+- from_role: tester
+- to_role: developer
 - feature_id: house-showcase
-- phase: build
+- phase: verify
 - round: 0
 - verdict: pass
-- summary: Этап unit-benefits готов — план и описание квартиры, три льготы без обещания банка, 404 для недоступной/чужой квартиры. Такси не в скоупе.
+- summary: Этап unit-benefits верифицирован (AC7: план, описание, три льготы без одобрения банка; 404). Следующий Build — route-taxi. Не Accept.
 - blockers: 
-- written_at: 2026-10-29 / session-010-developer-unit-benefits
+- written_at: 2026-10-29 / session-011-tester-unit-benefits
 
 ## Payload
 
-### Build → Verify (с plan)
+### Verify → Build (next stage, soft mid-pipeline)
 
-- plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
+- verify_verdict: pass
 - stage_id: unit-benefits
-- stage_dod_summary: `/complexes/[id]/units/[unitId]` показывает план SVG и описание; `/.../benefits` — три текстовых льготы без одобрения банка
-- how_to_verify: `npm run build`; `npm run start`; GET `/complexes/severny-kamen/units/sk-214` и `.../benefits`; GET `.../lk-45` и unit чужого ЖК → 404
-- expected: plan + описание + 3 льготы; отказ 404 без стека
+- next_stage_id: route-taxi
+- evidence:
+  - criterion: AC7
+    role: tester
+    command: npm run build; npm run start -p 3007; GET unit + benefits; GET lk-45 and cross-complex
+    result: plan SVG + description; 3 benefits + «не одобрение банка»; 404 for hidden/wrong
+    artifact: HTML localhost:3007 session-011-tester-unit-benefits
+    session: 2026-10-29 / session-011-tester-unit-benefits
+- gaps:
+  - foundation: независимый tester Compose/`/` не прогнан
+  - AC1–AC3, AC8–AC11; интеграция/сквозной/health/базовая — открыты

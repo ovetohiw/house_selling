@@ -7,16 +7,16 @@ Handoff между сессиями: проверенное состояние, 
 ## Текущее проверенное состояние
 
 - Стандартный путь старта: по AGENTS.md (sync → PROGRESS → HANDOFF → FEATURE → роль → [developer+build] plan/этап); карта — [INDEX.md](INDEX.md); роли — [roles/index.md](roles/index.md); convention — [convention/index.md](convention/index.md)
-- Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; дорожка `/` → витрина → unit → benefits
+- Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; дорожка до benefits
 - Текущая незавершённая фича с наивысшим приоритетом: house-showcase — Витрина «Каменный двор»
-- Текущая роль: tester
-- Фаза пайплайна: verify
+- Текущая роль: developer
+- Фаза пайплайна: build
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: `main` @ `83dc1f6` pushed to `origin/main`
-- Этап unit-benefits: `готово`; plan → `route-taxi` / в очереди
+- Remote: push после session-011 (см. лог)
+- Этап unit-benefits: `готово` + tester pass (AC7); plan → `route-taxi` / в очереди
 - Soft: mid-stage Verify→developer; foundation без независимого tester
-- Следующий лучший шаг: роль tester — проверить DoD этапа unit-benefits по HANDOFF
+- Следующий лучший шаг: роль developer / build — этап `route-taxi`
 
 ### Обязательный минимум конца сессии
 
@@ -24,17 +24,17 @@ Handoff между сессиями: проверенное состояние, 
 
 ## Лог сессий
 
-### Сессия 010
+### Сессия 011
 
 - Дата: 2026-10-29
-- Цель: developer — этап unit-benefits
-- Роль / фаза: developer / build → hop Verify
-- Сделано: unit page (план+описание); benefits ×3; resolveAvailableUnit; 404
-- Запущенная верификация: build; HTML unit/benefits; hidden/wrong 404
-- Осталось: tester unit-benefits; затем route-taxi
-- Следующий лучший шаг: tester проверяет unit-benefits
-- Delivered: commit+push `83dc1f6` на `origin/main`
+- Цель: tester — verify этапа unit-benefits
+- Роль / фаза: tester / verify → hop Build (route-taxi)
+- Сделано: build+start :3007; AC7 evidence; HANDOFF → developer
+- Запущенная верификация: unit plan/desc; benefits ×3; 404
+- Осталось: developer — route-taxi
+- Следующий лучший шаг: developer этап route-taxi
+- Delivered: commit документов (SHA ниже)
 
-### Сессия 009–001
+### Сессия 010–001
 
-- tester showcase … analyst
+- unit-benefits … analyst
