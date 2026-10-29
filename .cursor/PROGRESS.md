@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: verify
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: push после unit-benefits (см. лог)
+- Remote: `main` @ `83dc1f6` pushed to `origin/main`
 - Этап unit-benefits: `готово`; plan → `route-taxi` / в очереди
 - Soft: mid-stage Verify→developer; foundation без независимого tester
 - Следующий лучший шаг: роль tester — проверить DoD этапа unit-benefits по HANDOFF
@@ -33,7 +33,7 @@ Handoff между сессиями: проверенное состояние, 
 - Запущенная верификация: build; HTML unit/benefits; hidden/wrong 404
 - Осталось: tester unit-benefits; затем route-taxi
 - Следующий лучший шаг: tester проверяет unit-benefits
-- Delivered: commit+push (SHA ниже)
+- Delivered: commit+push `83dc1f6` на `origin/main`
 
 ### Сессия 009–001
 
