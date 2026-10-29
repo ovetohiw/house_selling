@@ -26,7 +26,7 @@
 - Название: Витрина «Каменный двор»
 - Приоритет: high
 - Статус: в работе
-- Пайплайн: build
+- Пайплайн: verify
 - Дата: 2026-10-29
 - Exec plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
 

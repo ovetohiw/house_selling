@@ -60,7 +60,7 @@
 
 Один этап. Id из decompose.
 
-- Этап id: visit
+- Этап id: motion-widths
 - Статус: в очереди
 
 ## Путь верификации
@@ -80,6 +80,11 @@
 - Слоты AGENTS пусты до foundation
 
 ## Лог прогресса
+
+- Сессия: 2026-10-29 developer visit
+  - Этап id: visit
+  - Сделано: календарь открытых дат; confirm; форма; POST /api/bookings; SQLite better-sqlite3; Compose volume; unit+integration
+  - Осталось: motion-widths после Verify
 
 - Сессия: 2026-10-29 developer route-taxi
   - Этап id: route-taxi

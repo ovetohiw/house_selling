@@ -41,3 +41,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local SQLite bookings (M5) — never commit dumps with PII
+/data/*.db
+/data/*.db-*
+*.db
+*.db-*

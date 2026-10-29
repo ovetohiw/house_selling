@@ -5,6 +5,9 @@ services:
       - "3000:3000"
     environment:
       YANDEX_MAPS_API_KEY: ${YANDEX_MAPS_API_KEY:-CHANGE_ME}
+      SQLITE_PATH: /app/data/bookings.db
+    volumes:
+      - bookings-data:/app/data
     healthcheck:
       test:
         [
@@ -17,3 +20,6 @@ services:
       timeout: 5s
       retries: 5
       start_period: 20s
+
+volumes:
+  bookings-data:

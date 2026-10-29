@@ -7,16 +7,16 @@ Handoff между сессиями: проверенное состояние, 
 ## Текущее проверенное состояние
 
 - Стандартный путь старта: по AGENTS.md (sync → PROGRESS → HANDOFF → FEATURE → роль → [developer+build] plan/этап); карта — [INDEX.md](INDEX.md); роли — [roles/index.md](roles/index.md); convention — [convention/index.md](convention/index.md)
-- Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; дорожка до route
+- Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; дорожка до visit/API
 - Текущая незавершённая фича с наивысшим приоритетом: house-showcase — Витрина «Каменный двор»
-- Текущая роль: developer
-- Фаза пайплайна: build
+- Текущая роль: tester
+- Фаза пайплайна: verify
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: `main` @ `30b518b` pushed to `origin/main`
-- Этап route-taxi: `готово` + tester pass (AC8); plan → `visit` / в очереди
-- Soft: mid-stage Verify→developer; foundation без независимого tester
-- Следующий лучший шаг: роль developer / build — этап `visit`
+- Remote: push после visit (см. лог)
+- Этап visit: `готово`; plan → `motion-widths` / в очереди
+- Soft: mid-stage Verify→developer; foundation без независимого tester; VISIT_TODAY для детерминированных проверок
+- Следующий лучший шаг: роль tester — проверить DoD этапа visit по HANDOFF (AC9)
 
 ### Обязательный минимум конца сессии
 
@@ -24,17 +24,17 @@ Handoff между сессиями: проверенное состояние, 
 
 ## Лог сессий
 
-### Сессия 013
+### Сессия 014
 
 - Дата: 2026-10-29
-- Цель: tester — verify этапа route-taxi
-- Роль / фаза: tester / verify → hop Build (visit)
-- Сделано: npm test 9/9; build+start :3009; AC8 evidence; HANDOFF → developer
-- Запущенная верификация: цены 835/925/880; подпись оценки
-- Осталось: developer — visit
-- Следующий лучший шаг: developer этап visit
-- Delivered: commit+push `30b518b` на `origin/main`
+- Цель: developer — этап visit
+- Роль / фаза: developer / build → hop Verify
+- Сделано: visit UI; API bookings; SQLite; dates/booking tests; Compose volume; gitignore db
+- Запущенная верификация: npm test 15/15; POST 201/400; календарь HTML
+- Осталось: tester visit; затем motion-widths
+- Следующий лучший шаг: tester проверяет visit
+- Delivered: commit+push (SHA ниже)
 
-### Сессия 012–001
+### Сессия 013–001
 
-- route-taxi … analyst
+- tester route-taxi … analyst

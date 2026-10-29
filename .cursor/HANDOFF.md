@@ -6,30 +6,22 @@
 
 ## Конверт
 
-- from_role: tester
-- to_role: developer
+- from_role: developer
+- to_role: tester
 - feature_id: house-showcase
-- phase: verify
+- phase: build
 - round: 0
 - verdict: pass
-- summary: Этап route-taxi верифицирован (AC8: три старта меняют оценку, подпись оценки, Vitest 9/9). Следующий Build — visit. Не Accept.
+- summary: Этап visit готов — календарь открытых дат, подтверждение, анкета, SQLite через параметризованный INSERT, отказы на закрытую дату и пустые поля, Vitest 15/15 + POST 201/400.
 - blockers: 
-- written_at: 2026-10-29 / session-013-tester-route-taxi
+- written_at: 2026-10-29 / session-014-developer-visit
 
 ## Payload
 
-### Verify → Build (next stage, soft mid-pipeline)
+### Build → Verify (с plan)
 
-- verify_verdict: pass
-- stage_id: route-taxi
-- next_stage_id: visit
-- evidence:
-  - criterion: AC8
-    role: tester
-    command: npm test; npm run build; npm run start -p 3009; GET route with three from values
-    result: 9/9; prices 835/925/880 differ; three starts; «Оценка, не вызов такси»
-    artifact: Vitest + HTML localhost:3009 session-013-tester-route-taxi
-    session: 2026-10-29 / session-013-tester-route-taxi
-- gaps:
-  - foundation: независимый tester Compose/`/` не прогнан
-  - AC1–AC3, AC9–AC11; интеграция/сквозной/health/базовая — открыты
+- plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
+- stage_id: visit
+- stage_dod_summary: Запись на открытую дату сохраняется; закрытая дата и пустые поля — понятный отказ; пустой календарь без анкеты; unit дат + POST зелёные
+- how_to_verify: `npm test`; `VISIT_TODAY=2026-10-26` + `npm run build` + start; GET `/.../visit`; POST `/api/bookings` open/closed/empty
+- expected: Vitest pass; open → 201; closed/empty → 400; HTML без среды в списке открытых дней
