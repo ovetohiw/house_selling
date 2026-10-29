@@ -60,7 +60,7 @@
 
 Один этап. Id из decompose.
 
-- Этап id: route-taxi
+- Этап id: visit
 - Статус: в очереди
 
 ## Путь верификации
@@ -80,6 +80,11 @@
 - Слоты AGENTS пусты до foundation
 
 ## Лог прогресса
+
+- Сессия: 2026-10-29 developer route-taxi
+  - Этап id: route-taxi
+  - Сделано: `/route` с 3 стартами; estimate 250+45×ceil(km); unit-тесты; подпись оценки
+  - Осталось: visit после Verify
 
 - Сессия: 2026-10-29 developer unit-benefits
   - Этап id: unit-benefits

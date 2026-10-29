@@ -6,30 +6,22 @@
 
 ## Конверт
 
-- from_role: tester
-- to_role: developer
+- from_role: developer
+- to_role: tester
 - feature_id: house-showcase
-- phase: verify
+- phase: build
 - round: 0
 - verdict: pass
-- summary: Этап unit-benefits верифицирован (AC7: план, описание, три льготы без одобрения банка; 404). Следующий Build — route-taxi. Не Accept.
+- summary: Этап route-taxi готов — три старта, оценка 250+45×ceil(км), смена старта меняет сумму, подпись «оценка, не вызов такси», Vitest зелёный.
 - blockers: 
-- written_at: 2026-10-29 / session-011-tester-unit-benefits
+- written_at: 2026-10-29 / session-012-developer-route-taxi
 
 ## Payload
 
-### Verify → Build (next stage, soft mid-pipeline)
+### Build → Verify (с plan)
 
-- verify_verdict: pass
-- stage_id: unit-benefits
-- next_stage_id: route-taxi
-- evidence:
-  - criterion: AC7
-    role: tester
-    command: npm run build; npm run start -p 3007; GET unit + benefits; GET lk-45 and cross-complex
-    result: plan SVG + description; 3 benefits + «не одобрение банка»; 404 for hidden/wrong
-    artifact: HTML localhost:3007 session-011-tester-unit-benefits
-    session: 2026-10-29 / session-011-tester-unit-benefits
-- gaps:
-  - foundation: независимый tester Compose/`/` не прогнан
-  - AC1–AC3, AC8–AC11; интеграция/сквозной/health/базовая — открыты
+- plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
+- stage_id: route-taxi
+- stage_dod_summary: На `/.../route` три старта; смена `from` меняет оценку; видна подпись «Оценка, не вызов такси»; unit формулы зелёный
+- how_to_verify: `npm test`; `npm run build`; `npm run start`; GET `...?from=red-square` и `...?from=sheremetyevo` — сравнить суммы
+- expected: разные ₽; три названия стартов; подпись оценки; Vitest taxi pass
