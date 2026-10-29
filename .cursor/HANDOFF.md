@@ -6,22 +6,37 @@
 
 ## Конверт
 
-- from_role: developer
-- to_role: tester
+- from_role: tester
+- to_role: developer
 - feature_id: house-showcase
-- phase: build
+- phase: verify
 - round: 0
 - verdict: pass
-- summary: Этап showcase готов — витрина квартир в наличии, три сортировки (цена со скидкой), скидки видны, недоступная скрыта, ссылки на unit. Страница квартиры — следующий этап.
+- summary: Этап showcase верифицирован (Vitest 7/7, AC5–AC6). Следующий Build — unit-benefits. Не Accept.
 - blockers: 
-- written_at: 2026-10-29 / session-008-developer-showcase
+- written_at: 2026-10-29 / session-009-tester-showcase
 
 ## Payload
 
-### Build → Verify (с plan)
+### Verify → Build (next stage, soft mid-pipeline)
 
-- plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
+- verify_verdict: pass
 - stage_id: showcase
-- stage_dod_summary: На `/complexes/[id]` только available; сортировки price/area/rooms меняют порядок (цена — effective); скидка отображается; ссылка ведёт на `/units/[unitId]`
-- how_to_verify: `npm test`; `npm run build`; `npm run start`; GET `/complexes/latunny-kvartal?sort=price` (нет `lk-45`, есть скидки); GET `...?sort=area` / `rooms` и сравнить порядок id
-- expected: Vitest sort зелёный; hidden unit отсутствует; discount и sort-ссылки в HTML
+- next_stage_id: unit-benefits
+- evidence:
+  - criterion: AC5
+    role: tester
+    command: npm test; npm run build; npm run start -p 3005; GET latunny/severny with sort params
+    result: 7/7; price/area/rooms/desc/discount visible; sort orders as expected
+    artifact: Vitest + HTML localhost:3005 session-009-tester-showcase
+    session: 2026-10-29 / session-009-tester-showcase
+  - criterion: AC6
+    role: tester
+    command: GET /complexes/latunny-kvartal?sort=price
+    result: lk-45 absent; only lk-12,lk-77
+    artifact: HTML localhost:3005 session-009-tester-showcase
+    session: 2026-10-29 / session-009-tester-showcase
+- gaps:
+  - foundation: независимый tester Compose/`/` не прогнан
+  - AC3: метка карты без ключа не проверена
+  - AC1–AC3, AC7–AC11; интеграция/сквозной/health/базовая — открыты

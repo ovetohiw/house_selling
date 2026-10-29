@@ -9,14 +9,14 @@ Handoff между сессиями: проверенное состояние, 
 - Стандартный путь старта: по AGENTS.md (sync → PROGRESS → HANDOFF → FEATURE → роль → [developer+build] plan/этап); карта — [INDEX.md](INDEX.md); роли — [roles/index.md](roles/index.md); convention — [convention/index.md](convention/index.md)
 - Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; `/`, `/complexes`, витрина
 - Текущая незавершённая фича с наивысшим приоритетом: house-showcase — Витрина «Каменный двор»
-- Текущая роль: tester
-- Фаза пайплайна: verify
+- Текущая роль: developer
+- Фаза пайплайна: build
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: `main` @ `90be1bd` pushed to `origin/main`
-- Этап showcase: `готово`; plan → `unit-benefits` / в очереди
+- Remote: push после session-009 (см. лог)
+- Этап showcase: `готово` + tester pass (AC5–AC6); plan → `unit-benefits` / в очереди
 - Soft: mid-stage Verify→developer; foundation без независимого tester
-- Следующий лучший шаг: роль tester — проверить DoD этапа showcase по HANDOFF
+- Следующий лучший шаг: роль developer / build — этап `unit-benefits`
 
 ### Обязательный минимум конца сессии
 
@@ -24,17 +24,17 @@ Handoff между сессиями: проверенное состояние, 
 
 ## Лог сессий
 
-### Сессия 008
+### Сессия 009
 
 - Дата: 2026-10-29
-- Цель: developer — этап showcase
-- Роль / фаза: developer / build → hop Verify
-- Сделано: витрина + sort + скидки + unit links + Vitest sort
-- Запущенная верификация: npm test 7/7; build; HTML latunny без lk-45 со скидками
-- Осталось: tester showcase; затем unit-benefits
-- Следующий лучший шаг: tester проверяет showcase
-- Delivered: commit+push `90be1bd` на `origin/main`
+- Цель: tester — verify этапа showcase
+- Роль / фаза: tester / verify → hop Build (unit-benefits)
+- Сделано: npm test 7/7; build+start :3005; AC5–AC6 evidence; HANDOFF → developer
+- Запущенная верификация: sort/discount/hidden unit на HTML
+- Осталось: developer — unit-benefits
+- Следующий лучший шаг: developer этап unit-benefits
+- Delivered: commit документов (SHA ниже)
 
-### Сессия 007–001
+### Сессия 008–001
 
-- tester complexes; complexes; catalog; foundation; security; analyst
+- showcase; tester complexes; complexes; catalog; foundation; security; analyst
