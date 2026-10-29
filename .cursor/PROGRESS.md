@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: verify
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: `main` @ `27e7037` pushed to `origin/main`
+- Remote: `main` @ `29318ac` pushed to `origin/main`
 - Этап motion-widths: `готово` (developer DoD); все этапы plan `готово`; ждёт независимого tester
 - Soft: mid-stage Verify→developer на прошлых этапах; foundation без независимого tester
 - Следующий лучший шаг: роль tester / verify — этап motion-widths (AC11 + e2e)
