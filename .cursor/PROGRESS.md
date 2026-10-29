@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: verify
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: `main` — push после commit motion-widths (см. лог сессии)
+- Remote: `main` @ `27e7037` pushed to `origin/main`
 - Этап motion-widths: `готово` (developer DoD); все этапы plan `готово`; ждёт независимого tester
 - Soft: mid-stage Verify→developer на прошлых этапах; foundation без независимого tester
 - Следующий лучший шаг: роль tester / verify — этап motion-widths (AC11 + e2e)
@@ -33,7 +33,7 @@ Handoff между сессиями: проверенное состояние, 
 - Запущенная верификация: `npm run test:e2e` — 4 passed, exit 0
 - Осталось: tester verify motion-widths / AC11
 - Следующий лучший шаг: tester — verify motion-widths (AC11)
-- Delivered: commit+push этапа motion-widths (SHA в статусе после push)
+- Delivered: commit+push `27e7037` на `origin/main`
 
 ### Сессия 015–001
 
