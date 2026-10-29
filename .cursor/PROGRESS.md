@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: verify
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: push после visit (см. лог)
+- Remote: `main` @ `39c325d` pushed to `origin/main`
 - Этап visit: `готово`; plan → `motion-widths` / в очереди
 - Soft: mid-stage Verify→developer; foundation без независимого tester; VISIT_TODAY для детерминированных проверок
 - Следующий лучший шаг: роль tester — проверить DoD этапа visit по HANDOFF (AC9)
@@ -33,7 +33,7 @@ Handoff между сессиями: проверенное состояние, 
 - Запущенная верификация: npm test 15/15; POST 201/400; календарь HTML
 - Осталось: tester visit; затем motion-widths
 - Следующий лучший шаг: tester проверяет visit
-- Delivered: commit+push (SHA ниже)
+- Delivered: commit+push `39c325d` на `origin/main`
 
 ### Сессия 013–001
 
