@@ -60,7 +60,7 @@
 
 Один этап. Id из decompose.
 
-- Этап id: unit-benefits
+- Этап id: route-taxi
 - Статус: в очереди
 
 ## Путь верификации
@@ -80,6 +80,11 @@
 - Слоты AGENTS пусты до foundation
 
 ## Лог прогресса
+
+- Сессия: 2026-10-29 developer unit-benefits
+  - Этап id: unit-benefits
+  - Сделано: страница квартиры (план+описание); benefits ×3 без банка; 404 для hidden/чужого ЖК
+  - Осталось: route-taxi после Verify
 
 - Сессия: 2026-10-29 developer showcase
   - Этап id: showcase

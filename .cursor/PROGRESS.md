@@ -7,16 +7,16 @@ Handoff между сессиями: проверенное состояние, 
 ## Текущее проверенное состояние
 
 - Стандартный путь старта: по AGENTS.md (sync → PROGRESS → HANDOFF → FEATURE → роль → [developer+build] plan/этап); карта — [INDEX.md](INDEX.md); роли — [roles/index.md](roles/index.md); convention — [convention/index.md](convention/index.md)
-- Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; `/`, `/complexes`, витрина
+- Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; дорожка `/` → витрина → unit → benefits
 - Текущая незавершённая фича с наивысшим приоритетом: house-showcase — Витрина «Каменный двор»
-- Текущая роль: developer
-- Фаза пайплайна: build
+- Текущая роль: tester
+- Фаза пайплайна: verify
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: `main` @ `e5b87a4` pushed to `origin/main`
-- Этап showcase: `готово` + tester pass (AC5–AC6); plan → `unit-benefits` / в очереди
+- Remote: push после unit-benefits (см. лог)
+- Этап unit-benefits: `готово`; plan → `route-taxi` / в очереди
 - Soft: mid-stage Verify→developer; foundation без независимого tester
-- Следующий лучший шаг: роль developer / build — этап `unit-benefits`
+- Следующий лучший шаг: роль tester — проверить DoD этапа unit-benefits по HANDOFF
 
 ### Обязательный минимум конца сессии
 
@@ -24,17 +24,17 @@ Handoff между сессиями: проверенное состояние, 
 
 ## Лог сессий
 
-### Сессия 009
+### Сессия 010
 
 - Дата: 2026-10-29
-- Цель: tester — verify этапа showcase
-- Роль / фаза: tester / verify → hop Build (unit-benefits)
-- Сделано: npm test 7/7; build+start :3005; AC5–AC6 evidence; HANDOFF → developer
-- Запущенная верификация: sort/discount/hidden unit на HTML
-- Осталось: developer — unit-benefits
-- Следующий лучший шаг: developer этап unit-benefits
-- Delivered: commit+push `e5b87a4` на `origin/main`
+- Цель: developer — этап unit-benefits
+- Роль / фаза: developer / build → hop Verify
+- Сделано: unit page (план+описание); benefits ×3; resolveAvailableUnit; 404
+- Запущенная верификация: build; HTML unit/benefits; hidden/wrong 404
+- Осталось: tester unit-benefits; затем route-taxi
+- Следующий лучший шаг: tester проверяет unit-benefits
+- Delivered: commit+push (SHA ниже)
 
-### Сессия 008–001
+### Сессия 009–001
 
-- showcase; tester complexes; complexes; catalog; foundation; security; analyst
+- tester showcase … analyst
