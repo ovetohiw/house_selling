@@ -6,22 +6,30 @@
 
 ## Конверт
 
-- from_role: developer
-- to_role: tester
+- from_role: tester
+- to_role: developer
 - feature_id: house-showcase
-- phase: build
+- phase: verify
 - round: 0
 - verdict: pass
-- summary: Этап route-taxi готов — три старта, оценка 250+45×ceil(км), смена старта меняет сумму, подпись «оценка, не вызов такси», Vitest зелёный.
+- summary: Этап route-taxi верифицирован (AC8: три старта меняют оценку, подпись оценки, Vitest 9/9). Следующий Build — visit. Не Accept.
 - blockers: 
-- written_at: 2026-10-29 / session-012-developer-route-taxi
+- written_at: 2026-10-29 / session-013-tester-route-taxi
 
 ## Payload
 
-### Build → Verify (с plan)
+### Verify → Build (next stage, soft mid-pipeline)
 
-- plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
+- verify_verdict: pass
 - stage_id: route-taxi
-- stage_dod_summary: На `/.../route` три старта; смена `from` меняет оценку; видна подпись «Оценка, не вызов такси»; unit формулы зелёный
-- how_to_verify: `npm test`; `npm run build`; `npm run start`; GET `...?from=red-square` и `...?from=sheremetyevo` — сравнить суммы
-- expected: разные ₽; три названия стартов; подпись оценки; Vitest taxi pass
+- next_stage_id: visit
+- evidence:
+  - criterion: AC8
+    role: tester
+    command: npm test; npm run build; npm run start -p 3009; GET route with three from values
+    result: 9/9; prices 835/925/880 differ; three starts; «Оценка, не вызов такси»
+    artifact: Vitest + HTML localhost:3009 session-013-tester-route-taxi
+    session: 2026-10-29 / session-013-tester-route-taxi
+- gaps:
+  - foundation: независимый tester Compose/`/` не прогнан
+  - AC1–AC3, AC9–AC11; интеграция/сквозной/health/базовая — открыты

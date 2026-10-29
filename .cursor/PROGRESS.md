@@ -9,14 +9,14 @@ Handoff между сессиями: проверенное состояние, 
 - Стандартный путь старта: по AGENTS.md (sync → PROGRESS → HANDOFF → FEATURE → роль → [developer+build] plan/этап); карта — [INDEX.md](INDEX.md); роли — [roles/index.md](roles/index.md); convention — [convention/index.md](convention/index.md)
 - Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; дорожка до route
 - Текущая незавершённая фича с наивысшим приоритетом: house-showcase — Витрина «Каменный двор»
-- Текущая роль: tester
-- Фаза пайплайна: verify
+- Текущая роль: developer
+- Фаза пайплайна: build
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: `main` @ `fea80e4` pushed to `origin/main`
-- Этап route-taxi: `готово`; plan → `visit` / в очереди
+- Remote: push после session-013 (см. лог)
+- Этап route-taxi: `готово` + tester pass (AC8); plan → `visit` / в очереди
 - Soft: mid-stage Verify→developer; foundation без независимого tester
-- Следующий лучший шаг: роль tester — проверить DoD этапа route-taxi по HANDOFF
+- Следующий лучший шаг: роль developer / build — этап `visit`
 
 ### Обязательный минимум конца сессии
 
@@ -24,17 +24,17 @@ Handoff между сессиями: проверенное состояние, 
 
 ## Лог сессий
 
-### Сессия 012
+### Сессия 013
 
 - Дата: 2026-10-29
-- Цель: developer — этап route-taxi
-- Роль / фаза: developer / build → hop Verify
-- Сделано: route page; taxi estimate + Vitest; подпись оценки
-- Запущенная верификация: npm test 9/9; HTML 835 vs 925 ₽
-- Осталось: tester route-taxi; затем visit
-- Следующий лучший шаг: tester проверяет route-taxi
-- Delivered: commit+push `fea80e4` на `origin/main`
+- Цель: tester — verify этапа route-taxi
+- Роль / фаза: tester / verify → hop Build (visit)
+- Сделано: npm test 9/9; build+start :3009; AC8 evidence; HANDOFF → developer
+- Запущенная верификация: цены 835/925/880; подпись оценки
+- Осталось: developer — visit
+- Следующий лучший шаг: developer этап visit
+- Delivered: commit документов (SHA ниже)
 
-### Сессия 011–001
+### Сессия 012–001
 
-- tester unit-benefits … analyst
+- route-taxi … analyst
