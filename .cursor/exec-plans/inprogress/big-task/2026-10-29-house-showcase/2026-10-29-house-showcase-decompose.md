@@ -218,13 +218,13 @@
   - Playwright-сценарии
 - Не делать:
   - новые продуктовые фичи вне AC
-- DoD этапа:
+  - DoD этапа:
   - Ожидаемый результат: e2e зелёный на двух ширинах; reduced-motion уважается
   - Команда / проверка: Playwright из AGENTS; проверка reduced-motion
-  - Результат прогона:
-  - Артефакт:
+  - Результат прогона: `npm run test:e2e` — build exit 0; 4 passed (desktop+mobile journey; desktop+mobile reduced-motion); exit 0
+  - Артефакт: Playwright e2e/journey.spec.ts; localhost:3012; session-016-developer-motion-widths 2026-10-29
 - Статус:
-  - [x] в очереди
+  - [ ] в очереди
   - [ ] в работе
   - [ ] верификация
-  - [ ] готово
+  - [x] готово

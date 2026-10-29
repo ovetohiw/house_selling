@@ -107,8 +107,8 @@ sync с remote (шаг 0)
 ## Тест работоспособности приложения
 
 - Поднять приложение: `docker compose up --build` (локально без Docker: `npm run dev`)
-- Прогнать тесты: `npm test` (Vitest); дополнительно `npm run lint`
-- Верификация: `GET http://localhost:3000/api/health` → 200; открыть `http://localhost:3000/` — бренд, телефон в шапке, прибытие без витрины/карты/календаря/льгот
+- Прогнать тесты: `npm test` (Vitest); `npm run test:e2e` (Playwright, две ширины); дополнительно `npm run lint`
+- Верификация: `GET http://localhost:3000/api/health` → 200; открыть `http://localhost:3000/` — бренд, телефон в шапке, прибытие без витрины/карты/календаря/льгот; сквозной путь — `npm run test:e2e`
 
 ## Definition of Done
 

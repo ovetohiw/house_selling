@@ -61,7 +61,7 @@
 Один этап. Id из decompose.
 
 - Этап id: motion-widths
-- Статус: в очереди
+- Статус: готово
 
 ## Путь верификации
 
@@ -80,6 +80,11 @@
 - Слоты AGENTS пусты до foundation
 
 ## Лог прогресса
+
+- Сессия: 2026-10-29 developer motion-widths
+  - Этап id: motion-widths
+  - Сделано: StepTransition + CSS step-enter/hero-veil; reduced-motion мгновенно; Playwright journey desktop+mobile + reduced-motion; AGENTS `test:e2e`; DoD 4/4 passed
+  - Осталось: Verify этапа motion-widths (tester); далее Accept / AC1–AC3, AC10–AC11
 
 - Сессия: 2026-10-29 developer visit
   - Этап id: visit

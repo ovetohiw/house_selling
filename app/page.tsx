@@ -5,7 +5,7 @@ export default function HomePage() {
     <main className="relative isolate min-h-[calc(100vh-4.5rem)] overflow-hidden">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(120%_80%_at_70%_20%,#2a261f_0%,#12110f_55%,#0c0b09_100%)]"
+        className="hero-veil pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(120%_80%_at_70%_20%,#2a261f_0%,#12110f_55%,#0c0b09_100%)]"
       />
       <div
         aria-hidden

@@ -7,16 +7,16 @@ Handoff между сессиями: проверенное состояние, 
 ## Текущее проверенное состояние
 
 - Стандартный путь старта: по AGENTS.md (sync → PROGRESS → HANDOFF → FEATURE → роль → [developer+build] plan/этап); карта — [INDEX.md](INDEX.md); роли — [roles/index.md](roles/index.md); convention — [convention/index.md](convention/index.md)
-- Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; дорожка до visit
+- Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; `npm run test:e2e`
 - Текущая незавершённая фича с наивысшим приоритетом: house-showcase — Витрина «Каменный двор»
-- Текущая роль: developer
-- Фаза пайплайна: build
+- Текущая роль: tester
+- Фаза пайплайна: verify
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: `main` @ `f797f93` pushed to `origin/main`
-- Этап visit: `готово` + tester pass (AC9); plan → `motion-widths` / в очереди
-- Soft: mid-stage Verify→developer; foundation без независимого tester
-- Следующий лучший шаг: роль developer / build — этап `motion-widths`
+- Remote: `main` — push после commit motion-widths (см. лог сессии)
+- Этап motion-widths: `готово` (developer DoD); все этапы plan `готово`; ждёт независимого tester
+- Soft: mid-stage Verify→developer на прошлых этапах; foundation без независимого tester
+- Следующий лучший шаг: роль tester / verify — этап motion-widths (AC11 + e2e)
 
 ### Обязательный минимум конца сессии
 
@@ -24,17 +24,17 @@ Handoff между сессиями: проверенное состояние, 
 
 ## Лог сессий
 
-### Сессия 015
+### Сессия 016
 
 - Дата: 2026-10-29
-- Цель: tester — verify этапа visit
-- Роль / фаза: tester / verify → hop Build (motion-widths)
-- Сделано: npm test 15/15; POST/UI AC9; HANDOFF → developer
-- Запущенная верификация: calendar/confirm/form; POST 201/400/400
-- Осталось: developer — motion-widths
-- Следующий лучший шаг: developer этап motion-widths
-- Delivered: commit+push `f797f93` на `origin/main`
+- Цель: developer — этап motion-widths
+- Роль / фаза: developer / build → hop Verify
+- Сделано: StepTransition + CSS; reduced-motion; Playwright journey 2 widths + reduced-motion; AGENTS `test:e2e`; DoD 4/4; HANDOFF → tester
+- Запущенная верификация: `npm run test:e2e` — 4 passed, exit 0
+- Осталось: tester verify motion-widths / AC11
+- Следующий лучший шаг: tester — verify motion-widths (AC11)
+- Delivered: commit+push этапа motion-widths (SHA в статусе после push)
 
-### Сессия 014–001
+### Сессия 015–001
 
 - visit … analyst

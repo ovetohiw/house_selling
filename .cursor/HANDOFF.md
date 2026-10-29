@@ -6,31 +6,22 @@
 
 ## Конверт
 
-- from_role: tester
-- to_role: developer
+- from_role: developer
+- to_role: tester
 - feature_id: house-showcase
 - phase: verify
 - round: 0
 - verdict: pass
-- summary: Этап visit верифицирован (AC9 + Unit 15/15 + интеграция POST 201/400). Следующий Build — motion-widths. Не Accept.
+- summary: Этап motion-widths закрыт (анимация шага + Playwright 4/4 на двух ширинах и reduced-motion). Нужен независимый verify AC11 и оставшихся дыр; не Accept.
 - blockers: 
-- written_at: 2026-10-29 / session-015-tester-visit
+- written_at: 2026-10-29 / session-016-developer-motion-widths
 
 ## Payload
 
-### Verify → Build (next stage, soft mid-pipeline)
+### Build → Verify (с plan)
 
-- verify_verdict: pass
-- stage_id: visit
-- next_stage_id: motion-widths
-- evidence:
-  - criterion: AC9
-    role: tester
-    command: npm test; VISIT_TODAY=2026-10-26 build+start :3011; GET visit steps; POST bookings
-    result: calendar/confirm/form OK; POST 201/400/400; Vitest 15/15
-    artifact: Vitest + HTTP localhost:3011 session-015-tester-visit
-    session: 2026-10-29 / session-015-tester-visit
-- gaps:
-  - foundation: независимый tester Compose/`/` не прогнан
-  - empty-calendar UI branch not exercised under normal 21-day rules
-  - AC1–AC3, AC10–AC11; сквозной/health/базовая — открыты
+- plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
+- stage_id: motion-widths
+- stage_dod_summary: e2e зелёный на desktop (1280) и mobile (390); reduced-motion не ломает дорожку; короткая анимация смены шага; слот AGENTS `npm run test:e2e`
+- how_to_verify: `npm run test:e2e` (build + Playwright webServer :3012, VISIT_TODAY=2026-10-26); при желании визуально `/` → visit с/без prefers-reduced-motion; сверить AC11
+- expected: 4 passed (journey ×2 widths + reduced-motion ×2); при reduced-motion смена шага без задержки анимации; заявка сохраняется до конца дорожки

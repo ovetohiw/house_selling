@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Noto_Sans, Noto_Serif, Outfit } from "next/font/google";
 import { SiteHeader } from "./components/SiteHeader";
+import { StepTransition } from "./components/StepTransition";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -45,7 +46,7 @@ export default function RootLayout({
         className={`${fraunces.variable} ${notoSerif.variable} ${outfit.variable} ${notoSans.variable} min-h-screen antialiased`}
       >
         <SiteHeader />
-        {children}
+        <StepTransition>{children}</StepTransition>
       </body>
     </html>
   );

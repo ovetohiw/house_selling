@@ -41,3 +41,43 @@ button:focus-visible {
   outline: 2px solid var(--color-brass);
   outline-offset: 3px;
 }
+
+@keyframes step-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.step-enter {
+  animation: step-enter 280ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step-enter {
+    animation: none;
+  }
+}
+
+@keyframes hero-veil {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-veil {
+  animation: hero-veil 900ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-veil {
+    animation: none;
+  }
+}
