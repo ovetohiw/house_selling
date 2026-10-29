@@ -1,0 +1,30 @@
+---
+description: Role pipeline, HANDOFF, Discipline, session-start order for this repo
+alwaysApply: true
+---
+
+# Roles pipeline
+
+Canon: `.cursor/roles/index.md`, contracts `.cursor/roles/contracts.md`, current hop `.cursor/HANDOFF.md`.
+
+## Session start (do not invent work)
+
+1. Sync remote per AGENTS.md.
+2. Read PROGRESS: blocker, current role, pipeline phase, next step (must be non-empty if a feature is active).
+3. Read HANDOFF: `to_role` must match PROGRESS current role (or `none` only when pipeline closed). Mismatch → hard; do not guess the role.
+4. Read FEATURE; `Пайплайн:` must match phase.
+5. Open `.cursor/roles/{role}.md` and follow Discipline in roles/index.
+6. Open exec-plan stage **only if** role is `developer`, phase is `build`, and HANDOFF does not require another role. Otherwise do not treat decompose stages as the assignment.
+7. One role per session. After role DoD: write HANDOFF + PROGRESS → stop. Do not start the next role or next stage in the same run.
+
+Role `N/A` → bootstrap only (analyst, `Пайплайн: spec`). No jump to build/verify/accept.
+
+## Before hop `pass` or feature `готово`
+
+- Full HANDOFF envelope + payload; summary alone is invalid.
+- Discipline anti-patterns; incomplete handoff = hard.
+- Feature `готово` requires gates G1–G8 (including pipeline, security must evidence, tester verify). No self-close of Build+Accept in one session.
+
+## Conflicts priority
+
+FEATURE criteria → AGENTS DoD gates → Security blocked/must → HANDOFF payload → role opinion/summary.
