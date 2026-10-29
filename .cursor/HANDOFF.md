@@ -6,22 +6,31 @@
 
 ## Конверт
 
-- from_role: developer
-- to_role: tester
+- from_role: tester
+- to_role: developer
 - feature_id: house-showcase
-- phase: build
+- phase: verify
 - round: 0
 - verdict: pass
-- summary: Этап visit готов — календарь открытых дат, подтверждение, анкета, SQLite через параметризованный INSERT, отказы на закрытую дату и пустые поля, Vitest 15/15 + POST 201/400.
+- summary: Этап visit верифицирован (AC9 + Unit 15/15 + интеграция POST 201/400). Следующий Build — motion-widths. Не Accept.
 - blockers: 
-- written_at: 2026-10-29 / session-014-developer-visit
+- written_at: 2026-10-29 / session-015-tester-visit
 
 ## Payload
 
-### Build → Verify (с plan)
+### Verify → Build (next stage, soft mid-pipeline)
 
-- plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
+- verify_verdict: pass
 - stage_id: visit
-- stage_dod_summary: Запись на открытую дату сохраняется; закрытая дата и пустые поля — понятный отказ; пустой календарь без анкеты; unit дат + POST зелёные
-- how_to_verify: `npm test`; `VISIT_TODAY=2026-10-26` + `npm run build` + start; GET `/.../visit`; POST `/api/bookings` open/closed/empty
-- expected: Vitest pass; open → 201; closed/empty → 400; HTML без среды в списке открытых дней
+- next_stage_id: motion-widths
+- evidence:
+  - criterion: AC9
+    role: tester
+    command: npm test; VISIT_TODAY=2026-10-26 build+start :3011; GET visit steps; POST bookings
+    result: calendar/confirm/form OK; POST 201/400/400; Vitest 15/15
+    artifact: Vitest + HTTP localhost:3011 session-015-tester-visit
+    session: 2026-10-29 / session-015-tester-visit
+- gaps:
+  - foundation: независимый tester Compose/`/` не прогнан
+  - empty-calendar UI branch not exercised under normal 21-day rules
+  - AC1–AC3, AC10–AC11; сквозной/health/базовая — открыты
