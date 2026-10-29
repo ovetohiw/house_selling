@@ -1,8 +1,21 @@
 FROM node:22-bookworm-slim AS deps
 WORKDIR /app
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends python3 make g++ \
-  && rm -rf /var/lib/apt/lists/*
+# Prefer a reachable mirror; retry apt (deb.debian.org often fails in this environment).
+RUN set -eux; \
+  printf '%s\n' \
+    'deb http://mirror.yandex.ru/debian bookworm main' \
+    'deb http://mirror.yandex.ru/debian-security bookworm-security main' \
+    > /etc/apt/sources.list; \
+  rm -f /etc/apt/sources.list.d/*; \
+  for i in 1 2 3 4 5; do \
+    apt-get update \
+      && apt-get install -y --no-install-recommends python3 make g++ \
+      && break; \
+    echo "apt retry $i"; sleep 15; \
+  done; \
+  command -v python3 >/dev/null; \
+  command -v g++ >/dev/null; \
+  rm -rf /var/lib/apt/lists/*
 COPY package.json package-lock.json ./
 RUN npm ci
 

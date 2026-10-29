@@ -89,9 +89,9 @@
 
 Фича «готово» только когда каждый пункт отмечен и ниже заполнены доказательства по схеме (команда → результат → артефакт → дата/сессия).
 
-- [ ] AC1. На каждом шаге дорожки в шапке виден телефон **+7 (495) 120-40-40** и работает ссылка `tel:+74951204040`
-- [ ] AC2. `/` показывает только прибытие (бренд, заголовок, пояснение, одно действие); витрина, карта, календарь и льготы в первом вьюпорте отсутствуют
-- [ ] AC3. На `/complexes` три комплекса; выбор комплекса открывает витрину только его квартир в наличии; метка карты (при ключе) делает то же
+- [x] AC1. На каждом шаге дорожки в шапке виден телефон **+7 (495) 120-40-40** и работает ссылка `tel:+74951204040`
+- [x] AC2. `/` показывает только прибытие (бренд, заголовок, пояснение, одно действие); витрина, карта, календарь и льготы в первом вьюпорте отсутствуют
+- [x] AC3. На `/complexes` три комплекса; выбор комплекса открывает витрину только его квартир в наличии; метка карты (при ключе) делает то же
 - [x] AC4. Без `YANDEX_MAPS_API_KEY` список комплексов доступен, а место карты показывает понятное сообщение о недоступности карты
 - [x] AC5. Витрина показывает цену, площадь, комнаты, описание и скидку; сортировка по цене (с учётом цены со скидкой), площади и числу комнат меняет порядок
 - [x] AC6. Недоступная квартира из каталога не появляется в витрине
@@ -99,7 +99,7 @@
 - [x] AC8. На маршруте смена старта из трёх точек меняет оценку такси; видна подпись, что это оценка, не вызов такси
 - [x] AC9. Запись: выбор открытой даты → подтверждение → имя и телефон → заявка сохраняется; закрытая дата и пустые поля дают понятный отказ; при отсутствии открытых дней анкета не показывается
 - [ ] AC10. `docker compose up --build` поднимает приложение; `GET /api/health` отвечает 200
-- [ ] AC11. Сквозной путь от `/` до сохранённой заявки проходит на широкой и узкой ширине; смена шага анимирована, при `prefers-reduced-motion` смена мгновенная
+- [x] AC11. Сквозной путь от `/` до сохранённой заявки проходит на широкой и узкой ширине; смена шага анимирована, при `prefers-reduced-motion` смена мгновенная
 
 ### Верификация
 
@@ -107,8 +107,8 @@
 
 - [x] Unit
 - [x] Интеграция
-- [ ] Сквозной путь
-- [ ] Health-check
+- [x] Сквозной путь
+- [x] Health-check
 - [ ] Базовая верификация из AGENTS.md зелёная
 
 Команды:
@@ -132,11 +132,11 @@
 
 Must:
 
-- [ ] M1: `YANDEX_MAPS_API_KEY` только из окружения; в репозитории — плейсхолдер `CHANGE_ME` в `.env.example`; реальный ключ не в коде, URL, Compose/Dockerfile как литерал, FEATURE/PROGRESS/логах/ответах клиенту. (convention/SECURITY.md — Секреты и конфиги; Зависимости и поставка)
-- [ ] M2: Приём заявки на просмотр валидирует на сервере (Route Handler) имя, телефон и то, что выбранная дата открыта по правилам контракта; пустые/невалидные поля и закрытая дата — явный отказ; клиентские флаги «дата подтверждена», цена, скидка, роль не источник истины для сохранения. (convention/SECURITY.md — Ввод и данные)
-- [ ] M3: Запись и чтение заявок в SQLite — только параметризованные запросы; без склейки пользовательского ввода в SQL-строку. (convention/DB.md — Запросы; SECURITY.md — Ввод и данные)
-- [ ] M4: Ответы API и страниц ошибок клиенту — без стека, текста SQL и внутренних путей файловой системы. (convention/SECURITY.md — Ответы клиенту)
-- [ ] M5: Реальные секреты и дампы заявок с ПДн не коммитить; том/файл SQLite с заявками не класть в git как прод-данные. (convention/SECURITY.md — Git и артефакты; DB.md)
+- [x] M1: `YANDEX_MAPS_API_KEY` только из окружения; в репозитории — плейсхолдер `CHANGE_ME` в `.env.example`; реальный ключ не в коде, URL, Compose/Dockerfile как литерал, FEATURE/PROGRESS/логах/ответах клиенту. (convention/SECURITY.md — Секреты и конфиги; Зависимости и поставка)
+- [x] M2: Приём заявки на просмотр валидирует на сервере (Route Handler) имя, телефон и то, что выбранная дата открыта по правилам контракта; пустые/невалидные поля и закрытая дата — явный отказ; клиентские флаги «дата подтверждена», цена, скидка, роль не источник истины для сохранения. (convention/SECURITY.md — Ввод и данные)
+- [x] M3: Запись и чтение заявок в SQLite — только параметризованные запросы; без склейки пользовательского ввода в SQL-строку. (convention/DB.md — Запросы; SECURITY.md — Ввод и данные)
+- [x] M4: Ответы API и страниц ошибок клиенту — без стека, текста SQL и внутренних путей файловой системы. (convention/SECURITY.md — Ответы клиенту)
+- [x] M5: Реальные секреты и дампы заявок с ПДн не коммитить; том/файл SQLite с заявками не класть в git как прод-данные. (convention/SECURITY.md — Git и артефакты; DB.md)
 
 Should:
 
@@ -177,6 +177,24 @@ Should:
 
 Одна строка на каждый отмеченный критерий выше.
 
+- Критерий: AC1
+  - Команда / действие: `npx next start -p 3013` после build; curl GET `/` `/complexes` `/complexes/severny-kamen` `/units/sk-214` `/benefits` `/route` `/visit`
+  - Результат: на каждом шаге HTML содержит `+7 (495) 120-40-40` и `tel:+74951204040` (HTTP 200)
+  - Артефакт: curl localhost:3013 session-017-tester-motion-widths
+  - Дата / сессия: 2026-10-29 / session-017-tester-motion-widths
+  - Роль: tester
+- Критерий: AC2
+  - Команда / действие: curl GET `http://127.0.0.1:3013/`
+  - Результат: бренд «Каменный двор», CTA «Смотреть дома»; нет «календар»/«Яндекс»/«Семейная ипотека»; список витрины на `/` отсутствует
+  - Артефакт: HTML localhost:3013/ session-017-tester-motion-widths
+  - Дата / сессия: 2026-10-29 / session-017-tester-motion-widths
+  - Роль: tester
+- Критерий: AC3
+  - Команда / действие: curl GET `/complexes` и `/complexes/severny-kamen` на :3013; e2e клик по комплексу
+  - Результат: href трёх ЖК (`severny-kamen`, `latunny-kvartal`, `rechnoy-utes`); витрина severny открывается; `lk-45` нет; метка карты — N/A без ключа (покрыто AC4)
+  - Артефакт: HTML :3013 + Playwright session-017-tester-motion-widths
+  - Дата / сессия: 2026-10-29 / session-017-tester-motion-widths
+  - Роль: tester
 - Критерий: AC4
   - Команда / действие: `npm run build`; `YANDEX_MAPS_API_KEY=CHANGE_ME npm run start -p 3002`; GET `/complexes`
   - Результат: три ЖК в HTML; текст «Карта недоступна»; ссылки на комплексы; телефон в шапке
@@ -213,14 +231,44 @@ Should:
   - Артефакт: Vitest + HTTP localhost:3011 session-015-tester-visit
   - Дата / сессия: 2026-10-29 / session-015-tester-visit
   - Роль: tester
+- Критерий: AC11
+  - Команда / действие: `npm run test:e2e` (build + Playwright desktop 1280 + mobile 390; reduced-motion)
+  - Результат: 4 passed; journey `/`→заявка на обеих ширинах; `animationDuration` 0s/0ms при reduced-motion; «Заявка сохранена»
+  - Артефакт: Playwright e2e/journey.spec.ts :3012 session-017-tester-motion-widths
+  - Дата / сессия: 2026-10-29 / session-017-tester-motion-widths
+  - Роль: tester
 
 #### По must ИБ (G7)
 
-- Must ID:
-  - Команда / действие:
-  - Результат:
-  - Артефакт:
-  - Дата / сессия:
+- Must ID: M1
+  - Команда / действие: чтение `.env.example`, `lib/maps/config.ts`, `docker-compose.yml`; поиск литерала ключа вне placeholder
+  - Результат: в репо `YANDEX_MAPS_API_KEY=CHANGE_ME`; runtime читает только env; CHANGE_ME → null (карта недоступна)
+  - Артефакт: `.env.example`; `lib/maps/config.ts`; session-017-tester-motion-widths
+  - Дата / сессия: 2026-10-29 / session-017-tester-motion-widths
+  - N/A обоснование (если применимо):
+- Must ID: M2
+  - Команда / действие: `npm test` (booking); POST open/closed/empty (session-015); обзор `lib/visit/booking.ts` + `app/api/bookings/route.ts`
+  - Результат: сервер валидирует имя/телефон/открытую дату; `dateConfirmed`/price/role игнорируются; отказы 400
+  - Артефакт: Vitest booking + HTTP session-015; код booking.ts session-017
+  - Дата / сессия: 2026-10-29 / session-017-tester-motion-widths
+  - N/A обоснование (если применимо):
+- Must ID: M3
+  - Команда / действие: обзор `lib/db/bookings.ts` (`prepare` + named/positional params)
+  - Результат: INSERT/SELECT только через `db.prepare(...).run/get` с параметрами; склейки user input в SQL нет
+  - Артефакт: `lib/db/bookings.ts` session-017-tester-motion-widths
+  - Дата / сессия: 2026-10-29 / session-017-tester-motion-widths
+  - N/A обоснование (если применимо):
+- Must ID: M4
+  - Команда / действие: POST invalid JSON / catch в `app/api/bookings/route.ts`; ответы 400/500
+  - Результат: клиенту только `{ error: "..." }` без stack/SQL/путей
+  - Артефакт: route.ts + session-015 POST отказы
+  - Дата / сессия: 2026-10-29 / session-017-tester-motion-widths
+  - N/A обоснование (если применимо):
+- Must ID: M5
+  - Команда / действие: проверка `.gitignore` (`*.db`, `/data/*.db`); отсутствие публичного GET списка заявок в `app/api`
+  - Результат: дампы БД игнорируются git; API заявок — только POST create
+  - Артефакт: `.gitignore`; дерево `app/api` session-017-tester-motion-widths
+  - Дата / сессия: 2026-10-29 / session-017-tester-motion-widths
   - N/A обоснование (если применимо):
 
 #### По уровням верификации
@@ -230,8 +278,8 @@ Should:
 - Уровень: Unit (каталог + sort + taxi + даты/booking)
   - Команда / действие: `npm test`
   - Результат: Vitest 15/15 passed
-  - Артефакт: вывод Vitest session-015-tester-visit 2026-10-29
-  - Дата / сессия: 2026-10-29 / session-015-tester-visit
+  - Артефакт: вывод Vitest session-017-tester-motion-widths 2026-10-29
+  - Дата / сессия: 2026-10-29 / session-017-tester-motion-widths
   - Роль: tester
 - Уровень: Интеграция (POST заявки)
   - Команда / действие: POST `/api/bookings` open/closed/empty при `VISIT_TODAY=2026-10-26`
@@ -239,12 +287,28 @@ Should:
   - Артефакт: HTTP localhost:3011 session-015-tester-visit
   - Дата / сессия: 2026-10-29 / session-015-tester-visit
   - Роль: tester
+- Уровень: Сквозной путь
+  - Команда / действие: `npm run test:e2e`
+  - Результат: 4 passed (desktop+mobile journey; desktop+mobile reduced-motion); exit 0
+  - Артефакт: Playwright :3012 session-017-tester-motion-widths
+  - Дата / сессия: 2026-10-29 / session-017-tester-motion-widths
+  - Роль: tester
+- Уровень: Health-check
+  - Команда / действие: `GET http://localhost:3000/api/health` (Compose `house_selling-web-1` Up healthy)
+  - Результат: HTTP 200 `{"status":"ok"}`
+  - Артефакт: curl + docker ps session-017-tester-motion-widths
+  - Дата / сессия: 2026-10-29 / session-017-tester-motion-widths
+  - Роль: tester
 
 #### Остаточный риск
 
 Если проверка урезана или отложена — запишите здесь и продублируйте в PROGRESS.md. Урезание без записи = гейт не пройден.
 
-- Mid-stage: foundation без независимого tester. AC4–AC9 закрыты tester. AC1–AC3, AC10–AC11 и сквозной/health/базовая — не закрыты (developer закрыл DoD этапа motion-widths: e2e 4/4; независимый tester ещё не подтвердил AC11). Пустой календарь при горизонте 21 день на практике не достигается. AC3: метка карты без ключа не проверена. Hop — tester verify `motion-widths` (не Accept фичи).
+- AC10 не закрыт: текущий Compose-образ на :3000 — foundation-поверхность (`/` и `/api/health` ок; `/complexes` → 404); `docker compose up --build` в session-017 упал (apt debian Connection failed). Нужен успешный rebuild образа.
+- Базовая верификация AGENTS целиком не отмечена: зависит от зелёного AC10/`compose --build`.
+- AC3: клик по метке карты не прогнан (нет реального ключа); список+витрина+AC4 закрывают без ключа.
+- Пустой календарь (нет открытых дней) при горизонте 21 день на практике не достигается.
+- Hop — Accept (дыра AC10).
 
 
 ## Лог завершённых

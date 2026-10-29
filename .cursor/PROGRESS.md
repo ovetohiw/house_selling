@@ -9,14 +9,14 @@ Handoff между сессиями: проверенное состояние, 
 - Стандартный путь старта: по AGENTS.md (sync → PROGRESS → HANDOFF → FEATURE → роль → [developer+build] plan/этап); карта — [INDEX.md](INDEX.md); роли — [roles/index.md](roles/index.md); convention — [convention/index.md](convention/index.md)
 - Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; `npm run test:e2e`
 - Текущая незавершённая фича с наивысшим приоритетом: house-showcase — Витрина «Каменный двор»
-- Текущая роль: tester
-- Фаза пайплайна: verify
-- HANDOFF round (verify↔build / accept↔build): 0 / 0
+- Текущая роль: developer
+- Фаза пайплайна: build
+- HANDOFF round (verify↔build / accept↔build): 0 / 1
 - Текущий блокер: нет
-- Remote: `main` @ `29318ac` pushed to `origin/main`
-- Этап motion-widths: `готово` (developer DoD); все этапы plan `готово`; ждёт независимого tester
-- Soft: mid-stage Verify→developer на прошлых этапах; foundation без независимого tester
-- Следующий лучший шаг: роль tester / verify — этап motion-widths (AC11 + e2e)
+- Remote: `main` @ `7de04e2` (локальные правки AC10 в работе)
+- Этап: fix AC10 Compose image (вне decompose stage id — Accept→Build)
+- Осталось: зелёный `docker compose up --build`; `/complexes` 200; health 200; handoff → tester
+- Следующий лучший шаг: developer — добить Compose rebuild и hop Verify
 
 ### Обязательный минимум конца сессии
 
@@ -24,17 +24,17 @@ Handoff между сессиями: проверенное состояние, 
 
 ## Лог сессий
 
-### Сессия 016
+### Сессия 017
 
 - Дата: 2026-10-29
-- Цель: developer — этап motion-widths
-- Роль / фаза: developer / build → hop Verify
-- Сделано: StepTransition + CSS; reduced-motion; Playwright journey 2 widths + reduced-motion; AGENTS `test:e2e`; DoD 4/4; HANDOFF → tester
-- Запущенная верификация: `npm run test:e2e` — 4 passed, exit 0
-- Осталось: tester verify motion-widths / AC11
-- Следующий лучший шаг: tester — verify motion-widths (AC11)
-- Delivered: commit+push `27e7037` на `origin/main`
+- Цель: tester — verify motion-widths + закрытие дыр AC/must
+- Роль / фаза: tester / verify → hop Accept
+- Сделано: `npm test` 15/15; `npm run lint`; `npm run test:e2e` 4/4; curl AC1–AC3 на :3013; Compose health 200; M1–M5 доказательства; FEATURE обновлён; HANDOFF → accept
+- Запущенная верификация: e2e 4/4; unit 15/15; health Compose; AC1–3 HTML
+- Осталось: Accept; закрыть AC10 (rebuild Compose)
+- Следующий лучший шаг: accept — сверка; AC10 дыра
+- Delivered: доказательства в FEATURE (commit после Accept hop / вместе с handoff)
 
-### Сессия 015–001
+### Сессия 016–001
 
-- visit … analyst
+- motion-widths … analyst

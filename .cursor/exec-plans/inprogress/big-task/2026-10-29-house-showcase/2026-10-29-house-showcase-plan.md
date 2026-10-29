@@ -128,6 +128,7 @@
 
 ## Открытые решения
 
+- Soft: Dockerfile deps — apt с mirror.yandex.ru + retry (deb.debian.org Connection failed в session-017); нужен python3/make/g++ для better-sqlite3 node-gyp
 - Язык «Ночной камень» без refs — принято (см. FEATURE риски)
 - Демо-телефон и мок-координаты — принято
 - better-sqlite3 без ORM в STACK — принято
