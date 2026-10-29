@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: build
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: push после session-009 (см. лог)
+- Remote: `main` @ `e5b87a4` pushed to `origin/main`
 - Этап showcase: `готово` + tester pass (AC5–AC6); plan → `unit-benefits` / в очереди
 - Soft: mid-stage Verify→developer; foundation без независимого tester
 - Следующий лучший шаг: роль developer / build — этап `unit-benefits`
@@ -33,7 +33,7 @@ Handoff между сессиями: проверенное состояние, 
 - Запущенная верификация: sort/discount/hidden unit на HTML
 - Осталось: developer — unit-benefits
 - Следующий лучший шаг: developer этап unit-benefits
-- Delivered: commit документов (SHA ниже)
+- Delivered: commit+push `e5b87a4` на `origin/main`
 
 ### Сессия 008–001
 
