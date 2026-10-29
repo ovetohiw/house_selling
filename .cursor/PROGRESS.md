@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: build
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: push после session-007 (см. лог)
+- Remote: `main` @ `1e37af0` pushed to `origin/main`
 - Этап complexes: `готово` + tester pass (AC4); plan → `showcase` / в очереди
 - Soft: mid-stage Verify→developer; foundation без независимого tester; метка карты без ключа не проверена
 - Следующий лучший шаг: роль developer / build — этап `showcase`
@@ -34,7 +34,7 @@ Handoff между сессиями: проверенное состояние, 
 - Известный риск: AC3 метка карты; foundation без независимого tester
 - Осталось: developer — showcase
 - Следующий лучший шаг: developer этап showcase
-- Delivered: commit документов (SHA ниже)
+- Delivered: commit+push `1e37af0` на `origin/main`
 
 ### Сессия 006
 
