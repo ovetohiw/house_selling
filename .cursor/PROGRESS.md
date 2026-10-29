@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: build
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: `main` @ `ad8d0cb` (до commit сессии 005)
+- Remote: `main` @ `25f5c23` pushed to `origin/main`
 - Этап catalog: `готово` + tester pass; plan указатель → `complexes` / в очереди
 - Soft: mid-stage Verify→developer (не Accept), пока план не закрыт; foundation без независимого tester
 - Следующий лучший шаг: роль developer / build — этап `complexes`
@@ -37,7 +37,7 @@ Handoff между сессиями: проверенное состояние, 
 - Известный риск: foundation без независимого tester; G8 фичи частичный (только Unit/catalog)
 - Осталось: developer — complexes
 - Следующий лучший шаг: developer этап complexes
-- Delivered: доказательства + handoff (commit документов)
+- Delivered: доказательства + handoff `25f5c23` на `origin/main`
 
 ### Сессия 004
 
