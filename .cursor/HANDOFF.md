@@ -6,22 +6,31 @@
 
 ## Конверт
 
-- from_role: developer
-- to_role: tester
+- from_role: tester
+- to_role: developer
 - feature_id: house-showcase
-- phase: build
+- phase: verify
 - round: 0
 - verdict: pass
-- summary: Этап catalog готов — 3 ЖК, 9 квартир (1 недоступна), льготы, старты маршрута, медиа и Vitest зелёный. UI витрины/карты не в этом этапе.
+- summary: Этап catalog верифицирован (`npm test` 4/4, состав 3/9/1). Фича не готова — следующий Build этап `complexes`. Не Accept.
 - blockers: 
-- written_at: 2026-10-29 / session-004-developer-catalog
+- written_at: 2026-10-29 / session-005-tester-catalog
 
 ## Payload
 
-### Build → Verify (с plan)
+### Verify → Build (next stage, soft mid-pipeline)
 
-- plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
+- verify_verdict: pass
 - stage_id: catalog
-- stage_dod_summary: Каталог читается из data/; 3 комплекса; 9 квартир с ровно одной недоступной; available-фильтр скрывает её; медиа и ATTRIBUTION на месте
-- how_to_verify: `npm test`
-- expected: Vitest — 4 passed; нет fail по составу каталога
+- next_stage_id: complexes
+- evidence:
+  - criterion: catalog DoD / Unit composition
+    role: tester
+    command: npm test; spot-check data JSON + public/media
+    result: 4 passed; complexes=3 units=9 hidden=lk-45 available=8; media+ATTRIBUTION ok
+    artifact: Vitest output + JSON counts session-005-tester-catalog
+    session: 2026-10-29 / session-005-tester-catalog
+- gaps:
+  - foundation: независимый tester ещё не прогонял Compose/health/`/` (отложено ранее)
+  - AC1–AC11 не закрыты; этапы complexes…motion-widths в очереди
+  - уровни интеграция / сквозной / health-check / базовая — не отмечены

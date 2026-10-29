@@ -9,14 +9,14 @@ Handoff между сессиями: проверенное состояние, 
 - Стандартный путь старта: по AGENTS.md (sync → PROGRESS → HANDOFF → FEATURE → роль → [developer+build] plan/этап); карта — [INDEX.md](INDEX.md); роли — [roles/index.md](roles/index.md); convention — [convention/index.md](convention/index.md)
 - Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; `/` прибытие
 - Текущая незавершённая фича с наивысшим приоритетом: house-showcase — Витрина «Каменный двор»
-- Текущая роль: tester
-- Фаза пайплайна: verify
+- Текущая роль: developer
+- Фаза пайплайна: build
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: `main` @ `883a3e9` pushed to `origin/main`
-- Этап catalog: `готово`; указатель plan → `complexes` / в очереди
-- Soft: mid-stage Verify foundation ранее отложен пинком; G8 фичи не закрыт
-- Следующий лучший шаг: роль tester — `npm test` по HANDOFF этапа catalog
+- Remote: `main` @ `ad8d0cb` (до commit сессии 005)
+- Этап catalog: `готово` + tester pass; plan указатель → `complexes` / в очереди
+- Soft: mid-stage Verify→developer (не Accept), пока план не закрыт; foundation без независимого tester
+- Следующий лучший шаг: роль developer / build — этап `complexes`
 
 ### Обязательный минимум конца сессии
 
@@ -24,25 +24,25 @@ Handoff между сессиями: проверенное состояние, 
 
 ## Лог сессий
 
-### Сессия 004
+### Сессия 005
 
 - Дата: 2026-10-29
-- Цель: developer — этап catalog
-- Роль / фаза: developer / build → hop Verify
+- Цель: tester — verify этапа catalog
+- Роль / фаза: tester / verify → hop Build (complexes)
 - Сделано:
-  - data: complexes, units (9/1 hidden), benefits, route-starts
-  - public/media Unsplash + SVG plans + ATTRIBUTION
-  - lib/catalog + Vitest 4/4; AGENTS slot `npm test`
-- Запущенная верификация: `npm test` pass; `npm run build` exit 0
-- Известный риск: Verify foundation по-прежнему без независимого tester (отложен пинком)
-- Осталось: tester catalog; затем Build complexes
-- Следующий лучший шаг: tester проверяет catalog
-- Delivered: commit+push `883a3e9` на `origin/main`
+  - `npm test` 4/4
+  - spot-check: 3 ЖК, 9 квартир, hidden `lk-45`, 8 available; media+ATTRIBUTION
+  - FEATURE Unit + доказательства `Роль: tester`; HANDOFF pass → developer
+- Запущенная верификация: `npm test` pass
+- Известный риск: foundation без независимого tester; G8 фичи частичный (только Unit/catalog)
+- Осталось: developer — complexes
+- Следующий лучший шаг: developer этап complexes
+- Delivered: доказательства + handoff (commit документов)
 
-### Сессия 003
+### Сессия 004
 
-- Delivered: foundation `aaf5ef2` / PROGRESS `a7c547b`
+- Delivered: catalog `883a3e9` / PROGRESS `ad8d0cb`
 
-### Сессия 002–001
+### Сессия 003–001
 
-- security → Build; analyst spec
+- foundation; security; analyst spec

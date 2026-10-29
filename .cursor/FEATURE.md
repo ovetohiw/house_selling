@@ -26,7 +26,7 @@
 - Название: Витрина «Каменный двор»
 - Приоритет: high
 - Статус: в работе
-- Пайплайн: verify
+- Пайплайн: build
 - Дата: 2026-10-29
 - Exec plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
 
@@ -105,7 +105,7 @@
 
 Отметьте обязательные уровни. Команды — из AGENTS.md, не выдумывайте раннер.
 
-- [ ] Unit
+- [x] Unit
 - [ ] Интеграция
 - [ ] Сквозной путь
 - [ ] Health-check
@@ -113,9 +113,9 @@
 
 Команды:
 
-- Поднять приложение: (заполнит этап foundation в AGENTS.md)
-- Прогнать тесты: (заполнит этап foundation / motion-widths в AGENTS.md)
-- Верификация: (заполнит этап foundation в AGENTS.md)
+- Поднять приложение: `docker compose up --build` (см. AGENTS.md)
+- Прогнать тесты: `npm test` (Vitest); `npm run lint`
+- Верификация: `GET /api/health`; `/` прибытие (см. AGENTS.md); unit — `npm test`
 
 ### Ограничения
 
@@ -154,7 +154,7 @@ Should:
 - Soft: фото Unsplash в репо + атрибуция; планы — собственные SVG.
 - Soft: SQLite через better-sqlite3 без отдельной ORM в STACK; ключ карт только из env.
 - Риск: без реального ключа Яндекс.Карт проверка метки карты ограничена пустым состоянием (AC4); клик по метке (часть AC3) — при наличии ключа в среде проверки.
-- Слоты команд в AGENTS.md пусты до этапа foundation — раннер до foundation не выдумывать.
+- Soft: после verify этапа catalog — hop к developer на `complexes` (фича не Accept), пока этапы плана не закрыты.
 
 ### Доказательства DoD
 
@@ -197,18 +197,19 @@ Should:
 
 Только для отмеченных уровней в секции «Верификация». Для G8 хотя бы часть строк — `Роль: tester`.
 
-- Уровень:
-  - Команда / действие:
-  - Результат:
-  - Артефакт:
-  - Дата / сессия:
-  - Роль:
+- Уровень: Unit (объём этапа catalog — состав каталога)
+  - Команда / действие: `npm test`; сверка `data/complexes.json` / `data/units.json`; наличие `public/media/ATTRIBUTION.md` и 15 медиафайлов
+  - Результат: Vitest 4/4 passed; complexes=3, units=9, hidden=`lk-45`, available=8; ATTRIBUTION и медиа на месте
+  - Артефакт: вывод Vitest + JSON spot-check session-005-tester-catalog 2026-10-29
+  - Дата / сессия: 2026-10-29 / session-005-tester-catalog
+  - Роль: tester
 
 #### Остаточный риск
 
 Если проверка урезана или отложена — запишите здесь и продублируйте в PROGRESS.md. Урезание без записи = гейт не пройден.
 
--
+- Mid-stage: независимый tester для foundation ещё не прогнан (ранее отложен пинком). Unit отмечен только в объёме catalog. AC1–AC11, интеграция/сквозной/health/базовая — не закрыты. Hop после catalog verify — обратно к developer на этап complexes (не Accept фичи).
+
 
 ## Лог завершённых
 
