@@ -8,15 +8,13 @@ Handoff между сессиями: проверенное состояние, 
 
 - Стандартный путь старта: по AGENTS.md (sync → PROGRESS → HANDOFF → FEATURE → роль → [developer+build] plan/этап); карта — [INDEX.md](INDEX.md); роли — [roles/index.md](roles/index.md); convention — [convention/index.md](convention/index.md)
 - Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; `npm run test:e2e`
-- Текущая незавершённая фича с наивысшим приоритетом: house-showcase — Витрина «Каменный двор»
-- Текущая роль: developer
-- Фаза пайплайна: build
-- HANDOFF round (verify↔build / accept↔build): 0 / 1
+- Текущая незавершённая фича с наивысшим приоритетом: нет (house-showcase `готово`)
+- Текущая роль: N/A
+- Фаза пайплайна: N/A
+- HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: `main` @ `7de04e2` (локальные правки AC10 в работе)
-- Этап: fix AC10 Compose image (вне decompose stage id — Accept→Build)
-- Осталось: зелёный `docker compose up --build`; `/complexes` 200; health 200; handoff → tester
-- Следующий лучший шаг: developer — добить Compose rebuild и hop Verify
+- Remote: `main` — push после закрытия Accept (см. лог)
+- Следующий лучший шаг: bootstrap новой фичи (analyst / `Пайплайн: spec`) или ожидание задачи от человека
 
 ### Обязательный минимум конца сессии
 
@@ -27,13 +25,13 @@ Handoff между сессиями: проверенное состояние, 
 ### Сессия 017
 
 - Дата: 2026-10-29
-- Цель: tester — verify motion-widths + закрытие дыр AC/must
-- Роль / фаза: tester / verify → hop Accept
-- Сделано: `npm test` 15/15; `npm run lint`; `npm run test:e2e` 4/4; curl AC1–AC3 на :3013; Compose health 200; M1–M5 доказательства; FEATURE обновлён; HANDOFF → accept
-- Запущенная верификация: e2e 4/4; unit 15/15; health Compose; AC1–3 HTML
-- Осталось: Accept; закрыть AC10 (rebuild Compose)
-- Следующий лучший шаг: accept — сверка; AC10 дыра
-- Delivered: доказательства в FEATURE (commit после Accept hop / вместе с handoff)
+- Цель: tester motion-widths → Accept fail AC10 → developer Compose fix → tester AC10 → Accept pass
+- Роль / фаза: tester → accept → developer → tester → accept / closed
+- Сделано: e2e AC11; AC1–3; M1–M5; Accept fail AC10; Dockerfile yandex mirror; Compose rebuild; AC10+базовая; G1–G8; completed+ranking B
+- Запущенная верификация: e2e 4/4; Vitest 15/15; Compose healthy; health 200; /complexes 200
+- Осталось: нет
+- Следующий лучший шаг: N/A — ждать новую фичу / analyst bootstrap
+- Delivered: push закрытия house-showcase
 
 ### Сессия 016–001
 
