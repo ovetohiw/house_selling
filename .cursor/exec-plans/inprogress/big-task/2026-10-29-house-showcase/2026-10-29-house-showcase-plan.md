@@ -60,7 +60,7 @@
 
 Один этап. Id из decompose.
 
-- Этап id: foundation
+- Этап id: catalog
 - Статус: в очереди
 
 ## Путь верификации
@@ -81,6 +81,11 @@
 
 ## Лог прогресса
 
+- Сессия: 2026-10-29 developer foundation
+  - Этап id: foundation
+  - Сделано: Next.js 15.5.7 + Tailwind + ESLint + Prettier; токены «Ночной камень»; шапка с телефоном; `/` прибытие; Docker Compose + health 200; слоты AGENTS + README; DoD зелёный; commit этапа
+  - Осталось: catalog и далее после Verify этапа / следующего пинка Build
+
 - Сессия: 2026-10-29 analyst spec
   - Этап id: —
   - Сделано: plan + decompose созданы; FEATURE заполнен; hop Spec→Security
@@ -91,3 +96,6 @@
 - Язык «Ночной камень» без refs — принято (см. FEATURE риски)
 - Демо-телефон и мок-координаты — принято
 - better-sqlite3 без ORM в STACK — принято
+- Soft: Fraunces/Outfit без кириллицы — Noto Serif/Sans как fallback глифов (layout)
+- Soft: на foundation герой — SVG-силуэт камня в `public/hero-stone.svg`; фото Unsplash — этап catalog
+- Soft: Next pinned 15.5.7 (патч CVE-2025-66478 линии 15.5); npm warn о более новом advisory — следить при следующих этапах

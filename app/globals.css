@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  --color-night: #12110f;
+  --color-night-lift: #1c1a17;
+  --color-ink: #f4f0e8;
+  --color-ink-muted: #c4bdb0;
+  --color-brass: #b08d57;
+  --color-brass-hover: #c4a36e;
+  --font-brand: var(--font-fraunces), var(--font-brand-cyr);
+  --font-ui: var(--font-outfit);
+}
+
+@theme inline {
+  --color-night: var(--color-night);
+  --color-night-lift: var(--color-night-lift);
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-brass: var(--color-brass);
+  --color-brass-hover: var(--color-brass-hover);
+  --font-brand: var(--font-fraunces), var(--font-brand-cyr);
+  --font-ui: var(--font-outfit);
+}
+
+.font-brand {
+  font-family: var(--font-fraunces), var(--font-brand-cyr), Georgia, serif;
+}
+
+.font-ui {
+  font-family: var(--font-outfit), var(--font-ui-cyr), system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-night);
+  color: var(--color-ink);
+  font-family: var(--font-outfit), var(--font-ui-cyr), system-ui, sans-serif;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 3px;
+}

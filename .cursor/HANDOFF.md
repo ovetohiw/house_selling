@@ -6,23 +6,22 @@
 
 ## Конверт
 
-- from_role: analyst
-- to_role: security
+- from_role: developer
+- to_role: tester
 - feature_id: house-showcase
-- phase: spec
+- phase: build
 - round: 0
 - verdict: pass
-- summary: Контракт витрины «Каменный двор» заполнен (скоуп, поведение, AC1–AC11, уровни verify); big-task plan и decompose с восемью этапами в очереди; стэк отмечен. Продуктовый код не писался.
+- summary: Этап foundation готов — Compose поднимает сайт, `/` прибытие с телефоном, `GET /api/health` = 200, слоты AGENTS заполнены. Каталог/карта/запись не в этом этапе.
 - blockers: 
-- written_at: 2026-10-29 / session-001-analyst-spec
+- written_at: 2026-10-29 / session-003-developer-foundation
 
 ## Payload
 
-### Spec → Security
+### Build → Verify (с plan)
 
-- feature_ready: yes
-- goal: Сегментированный сайт продажи квартир «Каменный двор» с дорожкой шагов до записи на просмотр, каталогом, картой, льготами, оценкой такси и Docker Compose
-- scope_in: дорожка `/`→complexes→витрина→квартира→льготы→маршрут→запись; телефон в шапке; сортировки; скидки; Яндекс.Карта при ключе; SQLite заявки; анимация шага; Compose + health
-- scope_out: оплата, бронь, кабинет, админка, CRM/почта, живой вызов такси, routing API Яндекса, ипотечный калькулятор, auth
-- behavior_ok: yes
-- acceptance_criteria_nonempty: yes
+- plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
+- stage_id: foundation
+- stage_dod_summary: Docker Compose поднимает приложение; `/` — бренд «Каменный двор», телефон в шапке, CTA «Смотреть дома», без витрины/карты/календаря/льгот; `/api/health` → 200; слоты запуска в AGENTS заполнены
+- how_to_verify: `docker compose up --build`; `GET http://localhost:3000/api/health`; открыть `http://localhost:3000/`; при необходимости `npm run lint`
+- expected: health 200; на `/` видны бренд и `+7 (495) 120-40-40` / `tel:+74951204040`; в первом вьюпорте нет каталога/карты/календаря/льгот; контейнер healthy
