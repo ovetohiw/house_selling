@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: verify
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: push после catalog (см. лог)
+- Remote: `main` @ `883a3e9` pushed to `origin/main`
 - Этап catalog: `готово`; указатель plan → `complexes` / в очереди
 - Soft: mid-stage Verify foundation ранее отложен пинком; G8 фичи не закрыт
 - Следующий лучший шаг: роль tester — `npm test` по HANDOFF этапа catalog
@@ -37,7 +37,7 @@ Handoff между сессиями: проверенное состояние, 
 - Известный риск: Verify foundation по-прежнему без независимого tester (отложен пинком)
 - Осталось: tester catalog; затем Build complexes
 - Следующий лучший шаг: tester проверяет catalog
-- Delivered: commit+push (SHA ниже)
+- Delivered: commit+push `883a3e9` на `origin/main`
 
 ### Сессия 003
 
