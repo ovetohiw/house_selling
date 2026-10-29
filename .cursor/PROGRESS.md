@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: verify
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: sync ok до работы; после этапа — push (см. лог сессии)
+- Remote: `main` @ `aaf5ef2` pushed to `origin/main`
 - Этап foundation: `готово` (DoD заполнен); указатель plan → `catalog` / в очереди (не стартовать до Verify foundation и следующего Build)
 - Следующий лучший шаг: роль tester — проверить DoD этапа foundation по HANDOFF (Compose, health, `/`)
 
@@ -37,7 +37,7 @@ Handoff между сессиями: проверенное состояние, 
 - Известный риск: npm warn о следующем advisory поверх 15.5.7; фото Unsplash отложены на catalog (SVG-герой)
 - Осталось: tester verify foundation; затем Build catalog
 - Следующий лучший шаг: tester проверяет foundation по HANDOFF
-- Delivered: commit+push этапа foundation (SHA в конце сессии)
+- Delivered: commit+push `aaf5ef2` на `origin/main`
 
 ### Сессия 002
 
