@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: build
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: push после session-015 (см. лог)
+- Remote: `main` @ `f797f93` pushed to `origin/main`
 - Этап visit: `готово` + tester pass (AC9); plan → `motion-widths` / в очереди
 - Soft: mid-stage Verify→developer; foundation без независимого tester
 - Следующий лучший шаг: роль developer / build — этап `motion-widths`
@@ -33,7 +33,7 @@ Handoff между сессиями: проверенное состояние, 
 - Запущенная верификация: calendar/confirm/form; POST 201/400/400
 - Осталось: developer — motion-widths
 - Следующий лучший шаг: developer этап motion-widths
-- Delivered: commit документов (SHA ниже)
+- Delivered: commit+push `f797f93` на `origin/main`
 
 ### Сессия 014–001
 
