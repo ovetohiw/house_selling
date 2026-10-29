@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: verify
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: push после route-taxi (см. лог)
+- Remote: `main` @ `fea80e4` pushed to `origin/main`
 - Этап route-taxi: `готово`; plan → `visit` / в очереди
 - Soft: mid-stage Verify→developer; foundation без независимого tester
 - Следующий лучший шаг: роль tester — проверить DoD этапа route-taxi по HANDOFF
@@ -33,7 +33,7 @@ Handoff между сессиями: проверенное состояние, 
 - Запущенная верификация: npm test 9/9; HTML 835 vs 925 ₽
 - Осталось: tester route-taxi; затем visit
 - Следующий лучший шаг: tester проверяет route-taxi
-- Delivered: commit+push (SHA ниже)
+- Delivered: commit+push `fea80e4` на `origin/main`
 
 ### Сессия 011–001
 
