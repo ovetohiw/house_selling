@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: N/A
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: `main` — push после закрытия Accept (см. лог)
+- Remote: `main` @ `e2f6a3f` pushed to `origin/main`
 - Следующий лучший шаг: bootstrap новой фичи (analyst / `Пайплайн: spec`) или ожидание задачи от человека
 
 ### Обязательный минимум конца сессии
@@ -31,7 +31,7 @@ Handoff между сессиями: проверенное состояние, 
 - Запущенная верификация: e2e 4/4; Vitest 15/15; Compose healthy; health 200; /complexes 200
 - Осталось: нет
 - Следующий лучший шаг: N/A — ждать новую фичу / analyst bootstrap
-- Delivered: push закрытия house-showcase
+- Delivered: commit+push `e2f6a3f` на `origin/main`
 
 ### Сессия 016–001
 
