@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: build
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: push после session-011 (см. лог)
+- Remote: `main` @ `d92ac5d` pushed to `origin/main`
 - Этап unit-benefits: `готово` + tester pass (AC7); plan → `route-taxi` / в очереди
 - Soft: mid-stage Verify→developer; foundation без независимого tester
 - Следующий лучший шаг: роль developer / build — этап `route-taxi`
@@ -33,7 +33,7 @@ Handoff между сессиями: проверенное состояние, 
 - Запущенная верификация: unit plan/desc; benefits ×3; 404
 - Осталось: developer — route-taxi
 - Следующий лучший шаг: developer этап route-taxi
-- Delivered: commit документов (SHA ниже)
+- Delivered: commit+push `d92ac5d` на `origin/main`
 
 ### Сессия 010–001
 
