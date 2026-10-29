@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: verify
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: push после complexes (см. лог)
+- Remote: `main` @ `bf4f195` pushed to `origin/main`
 - Этап complexes: `готово`; plan → `showcase` / в очереди
 - Soft: foundation без независимого tester; AC3 клик по метке карты — только при реальном ключе
 - Следующий лучший шаг: роль tester — проверить DoD этапа complexes по HANDOFF
@@ -34,7 +34,7 @@ Handoff между сессиями: проверенное состояние, 
 - Известный риск: метка карты не проверена без реального ключа
 - Осталось: tester complexes; затем Build showcase
 - Следующий лучший шаг: tester проверяет complexes
-- Delivered: commit+push (SHA ниже)
+- Delivered: commit+push `bf4f195` на `origin/main`
 
 ### Сессия 005
 
