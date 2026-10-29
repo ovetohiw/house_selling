@@ -7,16 +7,16 @@ Handoff между сессиями: проверенное состояние, 
 ## Текущее проверенное состояние
 
 - Стандартный путь старта: по AGENTS.md (sync → PROGRESS → HANDOFF → FEATURE → роль → [developer+build] plan/этап); карта — [INDEX.md](INDEX.md); роли — [roles/index.md](roles/index.md); convention — [convention/index.md](convention/index.md)
-- Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; `/` прибытие
+- Стандартный путь верификации: `docker compose up --build`; `GET /api/health`; `npm test`; страницы `/` и `/complexes`
 - Текущая незавершённая фича с наивысшим приоритетом: house-showcase — Витрина «Каменный двор»
-- Текущая роль: developer
-- Фаза пайплайна: build
+- Текущая роль: tester
+- Фаза пайплайна: verify
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: `main` @ `25f5c23` pushed to `origin/main`
-- Этап catalog: `готово` + tester pass; plan указатель → `complexes` / в очереди
-- Soft: mid-stage Verify→developer (не Accept), пока план не закрыт; foundation без независимого tester
-- Следующий лучший шаг: роль developer / build — этап `complexes`
+- Remote: push после complexes (см. лог)
+- Этап complexes: `готово`; plan → `showcase` / в очереди
+- Soft: foundation без независимого tester; AC3 клик по метке карты — только при реальном ключе
+- Следующий лучший шаг: роль tester — проверить DoD этапа complexes по HANDOFF
 
 ### Обязательный минимум конца сессии
 
@@ -24,25 +24,22 @@ Handoff между сессиями: проверенное состояние, 
 
 ## Лог сессий
 
-### Сессия 005
+### Сессия 006
 
 - Дата: 2026-10-29
-- Цель: tester — verify этапа catalog
-- Роль / фаза: tester / verify → hop Build (complexes)
-- Сделано:
-  - `npm test` 4/4
-  - spot-check: 3 ЖК, 9 квартир, hidden `lk-45`, 8 available; media+ATTRIBUTION
-  - FEATURE Unit + доказательства `Роль: tester`; HANDOFF pass → developer
-- Запущенная верификация: `npm test` pass
-- Известный риск: foundation без независимого tester; G8 фичи частичный (только Unit/catalog)
-- Осталось: developer — complexes
-- Следующий лучший шаг: developer этап complexes
-- Delivered: доказательства + handoff `25f5c23` на `origin/main`
+- Цель: developer — этап complexes
+- Роль / фаза: developer / build → hop Verify
+- Сделано: `/complexes` список 3 ЖК; карта при ключе / пустое без ключа; stub `[id]`; not-found; `lib/maps/config`
+- Запущенная верификация: build ok; start :3001; HTML список+пустое+stub; 404; npm test 4/4
+- Известный риск: метка карты не проверена без реального ключа
+- Осталось: tester complexes; затем Build showcase
+- Следующий лучший шаг: tester проверяет complexes
+- Delivered: commit+push (SHA ниже)
 
-### Сессия 004
+### Сессия 005
 
-- Delivered: catalog `883a3e9` / PROGRESS `ad8d0cb`
+- Delivered: tester catalog `25f5c23` / `94c6233`
 
-### Сессия 003–001
+### Сессия 004–001
 
-- foundation; security; analyst spec
+- catalog; foundation; security; analyst

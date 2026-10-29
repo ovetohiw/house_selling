@@ -60,7 +60,7 @@
 
 Один этап. Id из decompose.
 
-- Этап id: complexes
+- Этап id: showcase
 - Статус: в очереди
 
 ## Путь верификации
@@ -80,6 +80,11 @@
 - Слоты AGENTS пусты до foundation
 
 ## Лог прогресса
+
+- Сессия: 2026-10-29 developer complexes
+  - Этап id: complexes
+  - Сделано: `/complexes` список+карта/пустое без ключа; stub `[id]`; not-found; ключ только из env
+  - Осталось: showcase после Verify
 
 - Сессия: 2026-10-29 developer catalog
   - Этап id: catalog

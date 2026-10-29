@@ -6,31 +6,22 @@
 
 ## Конверт
 
-- from_role: tester
-- to_role: developer
+- from_role: developer
+- to_role: tester
 - feature_id: house-showcase
-- phase: verify
+- phase: build
 - round: 0
 - verdict: pass
-- summary: Этап catalog верифицирован (`npm test` 4/4, состав 3/9/1). Фича не готова — следующий Build этап `complexes`. Не Accept.
+- summary: Этап complexes готов — список трёх ЖК, пустая карта без ключа, переход на stub `/complexes/[id]`, 404 для неизвестного id. Сортировки витрины не в скоупе этапа.
 - blockers: 
-- written_at: 2026-10-29 / session-005-tester-catalog
+- written_at: 2026-10-29 / session-006-developer-complexes
 
 ## Payload
 
-### Verify → Build (next stage, soft mid-pipeline)
+### Build → Verify (с plan)
 
-- verify_verdict: pass
-- stage_id: catalog
-- next_stage_id: complexes
-- evidence:
-  - criterion: catalog DoD / Unit composition
-    role: tester
-    command: npm test; spot-check data JSON + public/media
-    result: 4 passed; complexes=3 units=9 hidden=lk-45 available=8; media+ATTRIBUTION ok
-    artifact: Vitest output + JSON counts session-005-tester-catalog
-    session: 2026-10-29 / session-005-tester-catalog
-- gaps:
-  - foundation: независимый tester ещё не прогонял Compose/health/`/` (отложено ранее)
-  - AC1–AC11 не закрыты; этапы complexes…motion-widths в очереди
-  - уровни интеграция / сквозной / health-check / базовая — не отмечены
+- plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
+- stage_id: complexes
+- stage_dod_summary: `/complexes` показывает 3 комплекса и сообщение «Карта недоступна» без ключа; ссылка/маршрут открывает stub комплекса; неизвестный id — понятный 404
+- how_to_verify: `npm run build`; `npm run start` (свободный порт); GET `/complexes` и `/complexes/severny-kamen` без `YANDEX_MAPS_API_KEY` / с CHANGE_ME; GET `/complexes/no-such` → 404
+- expected: три имени ЖК на списке; текст про недоступность карты; stub с именем комплекса; 404 без стека
