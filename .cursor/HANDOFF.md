@@ -6,31 +6,22 @@
 
 ## Конверт
 
-- from_role: tester
-- to_role: developer
+- from_role: developer
+- to_role: tester
 - feature_id: house-showcase
-- phase: verify
+- phase: build
 - round: 0
 - verdict: pass
-- summary: Этап complexes верифицирован без ключа карт (список 3 ЖК, пустая карта, stub, 404). AC4 отмечен. Следующий Build — showcase. Не Accept.
+- summary: Этап showcase готов — витрина квартир в наличии, три сортировки (цена со скидкой), скидки видны, недоступная скрыта, ссылки на unit. Страница квартиры — следующий этап.
 - blockers: 
-- written_at: 2026-10-29 / session-007-tester-complexes
+- written_at: 2026-10-29 / session-008-developer-showcase
 
 ## Payload
 
-### Verify → Build (next stage, soft mid-pipeline)
+### Build → Verify (с plan)
 
-- verify_verdict: pass
-- stage_id: complexes
-- next_stage_id: showcase
-- evidence:
-  - criterion: AC4 / complexes DoD
-    role: tester
-    command: npm run build; YANDEX_MAPS_API_KEY=CHANGE_ME npm run start -p 3002; GET /complexes, /complexes/severny-kamen, /complexes/no-such, /api/health
-    result: 3 ЖК + «Карта недоступна»; stub с именем; 404 без стека; health 200
-    artifact: HTML localhost:3002 session-007-tester-complexes
-    session: 2026-10-29 / session-007-tester-complexes
-- gaps:
-  - foundation: независимый tester Compose/`/` ещё не прогнан
-  - AC3: клик по метке карты не проверен (нет реального ключа); полная витрина — этап showcase
-  - AC1–AC3, AC5–AC11 и уровни интеграция/сквозной/health/базовая — не закрыты
+- plan: `.cursor/exec-plans/inprogress/big-task/2026-10-29-house-showcase/`
+- stage_id: showcase
+- stage_dod_summary: На `/complexes/[id]` только available; сортировки price/area/rooms меняют порядок (цена — effective); скидка отображается; ссылка ведёт на `/units/[unitId]`
+- how_to_verify: `npm test`; `npm run build`; `npm run start`; GET `/complexes/latunny-kvartal?sort=price` (нет `lk-45`, есть скидки); GET `...?sort=area` / `rooms` и сравнить порядок id
+- expected: Vitest sort зелёный; hidden unit отсутствует; discount и sort-ссылки в HTML

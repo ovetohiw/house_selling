@@ -60,7 +60,7 @@
 
 Один этап. Id из decompose.
 
-- Этап id: showcase
+- Этап id: unit-benefits
 - Статус: в очереди
 
 ## Путь верификации
@@ -80,6 +80,11 @@
 - Слоты AGENTS пусты до foundation
 
 ## Лог прогресса
+
+- Сессия: 2026-10-29 developer showcase
+  - Этап id: showcase
+  - Сделано: витрина available-only; sort price/area/rooms (effective price); скидки; ссылки на unit; Vitest sort
+  - Осталось: unit-benefits после Verify
 
 - Сессия: 2026-10-29 developer complexes
   - Этап id: complexes
