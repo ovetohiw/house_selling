@@ -13,7 +13,7 @@ Handoff между сессиями: проверенное состояние, 
 - Фаза пайплайна: build
 - HANDOFF round (verify↔build / accept↔build): 0 / 0
 - Текущий блокер: нет
-- Remote: push после session-013 (см. лог)
+- Remote: `main` @ `30b518b` pushed to `origin/main`
 - Этап route-taxi: `готово` + tester pass (AC8); plan → `visit` / в очереди
 - Soft: mid-stage Verify→developer; foundation без независимого tester
 - Следующий лучший шаг: роль developer / build — этап `visit`
@@ -33,7 +33,7 @@ Handoff между сессиями: проверенное состояние, 
 - Запущенная верификация: цены 835/925/880; подпись оценки
 - Осталось: developer — visit
 - Следующий лучший шаг: developer этап visit
-- Delivered: commit документов (SHA ниже)
+- Delivered: commit+push `30b518b` на `origin/main`
 
 ### Сессия 012–001
 
